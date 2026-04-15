@@ -7,7 +7,7 @@
 <body>
 
 <nav>
-         <a href="index.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="rooms.html">Rooms</a>
         <a href="booking.html">Booking</a>
@@ -18,15 +18,39 @@
         <a href="specialoffers.html">Offers</a>
       
 </nav>
-<p>Phone: +267 123 4567</p>
-<p>Email: info@sunrisehotel.com</p>
+ <!-- STEP 3: Main content container -->
+<main class="container">
 
-<form>
-    Your Message:<br>
-    <textarea></textarea><br><br>
+  <!-- Page heading -->
+  <h2>Contact Us</h2>
 
-    <input type="submit" value="Send">
-</form>
+  <!-- STEP 4: Contact information section -->
+  <div class="contact-info">
+    <p><strong>Phone:</strong> 123456</p>
+    <p><strong>Email:</strong> info@hotel.com</p>
+    <p><strong>Location:</strong> Gaborone</p>
+  </div>
+
+  <!-- STEP 5: Contact form (linked to CSS class) -->
+  <form class="contact-form">
+    
+    <!-- Input fields -->
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+
+    <!-- Message box -->
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+
+  <!-- STEP 6: Map placeholder -->
+  <div class="map">
+    Map Location
+  </div>
+
+</main>
 
 </body>
 </html>

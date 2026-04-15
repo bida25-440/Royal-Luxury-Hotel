@@ -68,12 +68,15 @@ header {
   background: var(--gold);
   color: var(--purple);
   text-align: center;
-  padding: 25px 20px;
+  padding: 10px 10px;
 }
 
 
-.container {
-  padding: 40px 20px;
+.col-md-4 {
+  border: 1px solid #ddd;
+  padding: 30px 50px;
+  border-radius: 5px;
+  margin: auto;
 }
 
 
@@ -91,9 +94,29 @@ header {
 .card {
   border: 1px solid #ddd;
   padding: 20px;
+  margin: 20px;
   background: var(--white);
 }
 
+.room-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card2 {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 40px;
+  background: var(--gold);
+}
+
+.card3 {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  background: var(--white);
+}
 
 .btn {
   padding: 10px 15px;
@@ -133,5 +156,68 @@ input, select, textarea {
 @media (max-width: 768px) {
   .col-3, .col-4, .col-6 {
     width: 100%;
-  }
+  } 
+}
+
+/* Section spacing */
+.contact-info {
+  margin-bottom: 30px;
+}
+
+/* Contact text styling */
+.contact-info p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: var(--purple);
+}
+
+/* Form container */
+.contact-form {
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+/* Input fields */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Focus effect (when user clicks input) */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--purple);
+  outline: none;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.modal img {
+  width: 300px;
+  margin: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
 }

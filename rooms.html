@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="style.css">
 <body>
 
+    <header>
+        <h1>Rooms</h1>
+    </header> 
+
 <nav>
          <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -20,20 +24,109 @@
       
 </nav>
 
-<section class="container my-5">
-  <h2>Rooms & Suites</h2>
+<main class="container">
+  <div class="row">
 
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-4 bg-secondary text-white text-center p-5">Image</div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5>Standard Room</h5>
-          <a href="booking.html" class="btn btn-primary">Check Availability</a>
-        </div>
-      </div>
+    <!-- Standard Room -->
+    <div class="card">
+      <img src="standardroom pic1.jpg" alt="Standard Room" class="room-img" onclick="openGallery('standard')">
+      <h3>Standard Room</h3>
+      <p>Price: $150/night</p>
+      <a href="booking.html"><button class="btn">Book Now</button></a>
     </div>
+
+    <!-- Deluxe Room -->
+    <div class="card">
+      <img src="deluxe-room.jpg" alt="Deluxe Room" class="room-img" onclick="openGallery('deluxe')">
+      <h3>Deluxe Room</h3>
+      <p>Price: $200/night</p>
+      <a href="booking.html"><button class="btn">Book Now</button></a>
+    </div>
+
+     <div class="card">
+      <img src="deluxe-room.jpg" alt="Family Room" class="room-img" onclick="openGallery('Family')">
+      <h3>Family Room</h3>
+      <p>Price: $200/night</p>
+      <a href="booking.html"><button class="btn">Book Now</button></a>
+    </div>
+
+     <div class="card">
+      <img src="deluxe-room.jpg" alt="Excutive Room" class="room-img" onclick="openGallery('Excutive')">
+      <h3>Excutive Room</h3>
+      <p>Price: $200/night</p>
+      <a href="booking.html"><button class="btn">Book Now</button></a>
+    </div>
+
+     <div class="card">
+      <img src="deluxe-room.jpg" alt="Presidential Suite" class="room-img" onclick="openGallery('Presidential')">
+      <h3>Presidential Suite</h3>
+      <p>Price: $200/night</p>
+      <a href="booking.html"><button class="btn">Book Now</button></a>
+    </div>
+
+
   </div>
-</section>
+</main>
+
+<!-- Modal (Popup Gallery) -->
+<div id="galleryModal" class="modal">
+  <span class="close" onclick="closeGallery()">&times;</span>
+  <div id="galleryContent"></div>
+</div>
+
+<script>
+function openGallery(roomType) {
+  var modal = document.getElementById("galleryModal");
+  var content = document.getElementById("galleryContent");
+
+  content.innerHTML = ""; // clear previous images
+
+  if (roomType === "standard") {
+    content.innerHTML = `
+      <img src="standardroom pic2.jpg">
+      <img src="standardroom pic3.jpg">
+      <img src="standardroom pic4.jpg">
+    `;
+  }
+
+  if (roomType === "deluxe") {
+    content.innerHTML = `
+      <img src="deluxe1.jpg">
+      <img src="deluxe2.jpg">
+      <img src="deluxe3.jpg">
+    `;
+  }
+
+    if (roomType === "Family") {
+    content.innerHTML = `
+      <img src="deluxe1.jpg">
+      <img src="deluxe2.jpg">
+      <img src="deluxe3.jpg">
+    `;
+  }
+
+    if (roomType === "Excutive") {
+    content.innerHTML = `
+      <img src="deluxe1.jpg">
+      <img src="deluxe2.jpg">
+      <img src="deluxe3.jpg">
+    `;
+  }
+
+    if (roomType === "Presidential") {
+    content.innerHTML = `
+      <img src="deluxe1.jpg">
+      <img src="deluxe2.jpg">
+      <img src="deluxe3.jpg">
+    `;
+  }
+
+  modal.style.display = "block";
+}
+
+function closeGallery() {
+  document.getElementById("galleryModal").style.display = "none";
+}
+</script>
 </body>
 </html>
