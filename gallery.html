@@ -3,6 +3,33 @@
 <head>
     <title>Gallery</title>
     <link rel="stylesheet" href="style.css">
+<style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+
+    .carousel {
+      width: 300px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .buttons {
+      margin-top: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    </style>
 </head>
 <body>
 
@@ -22,9 +49,69 @@
         <a href="specialoffers.html">Offers</a>
 </nav>
 
-<img src="room1.jpg" alt="Room Image" width="200">
-<img src="pool.jpg" alt="Pool Image" width="200">
-<img src="restaurant.jpg" alt="Restaurant Image" width="200">
+<!-- Carousel 1: Rooms -->
+<div class="carousel">
+  <h3>Rooms</h3>
+  <img id="rooms" src="room1.jpg">
+  <div class="buttons">
+    <button onclick="prevImage('rooms')">Prev</button>
+    <button onclick="nextImage('rooms')">Next</button>
+  </div>
+</div>
+
+<!-- Carousel 2: Facilities -->
+<div class="carousel">
+  <h3>Facilities</h3>
+  <img id="facilities" src="fac1.jpg">
+  <div class="buttons">
+    <button onclick="prevImage('facilities')">Prev</button>
+    <button onclick="nextImage('facilities')">Next</button>
+  </div>
+</div>
+
+<!-- Carousel 3: Dining -->
+<div class="carousel">
+  <h3>Dining</h3>
+  <img id="dining" src="food1.jpg">
+  <div class="buttons">
+    <button onclick="prevImage('dining')">Prev</button>
+    <button onclick="nextImage('dining')">Next</button>
+  </div>
+</div>
+
+<script>
+/* Image arrays */
+var images = {
+  rooms: ["room1.jpg", "room2.jpg", "room3.jpg"],
+  facilities: ["fac1.jpg", "fac2.jpg", "fac3.jpg"],
+  dining: ["food1.jpg", "food2.jpg", "food3.jpg"]
+};
+
+/* Track current image index */
+var index = {
+  rooms: 0,
+  facilities: 0,
+  dining: 0
+};
+
+/* Next button */
+function nextImage(type) {
+  index[type]++;
+  if (index[type] >= images[type].length) {
+    index[type] = 0;
+  }
+  document.getElementById(type).src = images[type][index[type]];
+}
+
+/* Previous button */
+function prevImage(type) {
+  index[type]--;
+  if (index[type] < 0) {
+    index[type] = images[type].length - 1;
+  }
+  document.getElementById(type).src = images[type][index[type]];
+}
+</script>
 
 </body>
 </html>
