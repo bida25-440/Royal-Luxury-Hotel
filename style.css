@@ -1,9 +1,13 @@
+/* ===================== GLOBAL ===================== */
 :root {
   --purple: #4b2e83;
   --gold: #d4af37;
   --white: #ffffff;
 }
 
+* {
+  box-sizing: border-box; /* ensures padding doesn’t break layout */
+}
 
 body {
   margin: 0;
@@ -11,13 +15,15 @@ body {
   background: var(--white);
 }
 
+/* ===================== NAVBAR ===================== */
 nav {
   background: var(--purple);
   color: var(--white);
-  padding: 15px;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 nav a {
@@ -31,27 +37,28 @@ nav a:hover {
   color: var(--gold);
 }
 
-/* Toggle button style */
+/* Toggle button */
 .nav-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--white);
 }
 
+/* Nav links */
 .nav-links {
   display: flex;
   gap: 20px;
 }
 
+/* ===================== MOBILE NAV ===================== */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
   }
+
   .nav-links {
     display: none;
     flex-direction: column;
-    gap: 10px;
     background: var(--purple);
     position: absolute;
     top: 60px;
@@ -59,65 +66,73 @@ nav a:hover {
     width: 100%;
     padding: 10px 20px;
   }
+
   .nav-links.show {
     display: flex;
   }
 }
 
+/* ===================== HEADER ===================== */
 header {
   background: var(--gold);
   color: var(--purple);
   text-align: center;
-  padding: 10px 10px;
+  padding: 40px 20px; /* reduced for mobile */
 }
 
-
-.col-md-4 {
-  border: 1px solid #ddd;
-  padding: 30px 50px;
-  border-radius: 5px;
-  margin: auto;
+/* ===================== CONTAINER ===================== */
+.container {
+  padding: 20px;
 }
 
-
+/* ===================== GRID ===================== */
 .row {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.col-3 { width: 23%; }
-.col-4 { width: 30%; }
-.col-6 { width: 48%; }
+/* Flexible columns instead of fixed widths */
+.col-3, .col-4, .col-6 {
+  flex: 1;
+  min-width: 250px; /* ensures stacking on small screens */
+}
 
-
-.card {
+/* ===================== CARDS ===================== */
+.card, .card2, .card3 {
   border: 1px solid #ddd;
   padding: 20px;
-  margin: 20px;
   background: var(--white);
-}
-
-.room-img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
 }
 
+/* Special card styles */
 .card2 {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 40px;
   background: var(--gold);
 }
 
-.card3 {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 20px;
-  background: var(--white);
+/* ===================== IMAGES ===================== */
+.room-img {
+  width: 100%;
+  height: auto; /* FIXED: prevents distortion */
+  max-height: 200px;
+  object-fit: cover;
 }
 
+.image {
+  background: #ccc;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image:hover {
+  opacity: 0.8;
+}
+
+/* ===================== BUTTONS ===================== */
 .btn {
   padding: 10px 15px;
   border: none;
@@ -135,7 +150,7 @@ header {
   color: var(--purple);
 }
 
-
+/* ===================== FORMS ===================== */
 input, select, textarea {
   width: 100%;
   padding: 10px;
@@ -143,82 +158,88 @@ input, select, textarea {
   border: 1px solid #ccc;
 }
 
-
-.image {
-  background: #ccc;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-@media (max-width: 768px) {
-  .col-3, .col-4, .col-6 {
-    width: 100%;
-  } 
-}
-
-/* Section spacing */
+/* Contact form */
 .contact-info {
   margin-bottom: 30px;
 }
 
-/* Contact text styling */
 .contact-info p {
   font-size: 16px;
-  margin: 8px 0;
   color: var(--purple);
 }
 
-/* Form container */
 .contact-form {
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 100%; /* FIXED: full width on mobile */
 }
 
-/* Input fields */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-/* Focus effect (when user clicks input) */
+/* Focus effect */
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--purple);
   outline: none;
 }
 
-
+/* ===================== MODAL ===================== */
 .modal {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 50px;
+  padding: 20px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.9);
   text-align: center;
+  overflow-y: auto; /* FIXED: scroll on small screens */
 }
 
 .modal img {
-  width: 300px;
+  width: 90%; /* responsive image */
+  max-width: 400px;
   margin: 10px;
 }
 
 .close {
   position: absolute;
   top: 20px;
-  right: 35px;
+  right: 20px;
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   cursor: pointer;
 }
 
+/* ===================== RESPONSIVE BREAKPOINTS ===================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  header {
+    padding: 30px 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column; /* stack everything */
+  }
+
+  header {
+    padding: 20px 10px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .btn {
+    width: 100%; /* full-width buttons */
+  }
+}
