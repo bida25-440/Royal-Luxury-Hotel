@@ -5,6 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hotel Website</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===================== VERTICAL BOOKING FORM ===================== */
+
+.booking-bar {
+  display: flex;
+  flex-direction: column; /* KEY CHANGE */
+  gap: 15px;
+  background: var(--white);
+  border: 3px solid var(--gold);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px; /* keeps it neat */
+  margin: auto; /* center the form */
+}
+
+/* Each field */
+.booking-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.booking-field label {
+  font-size: 13px;
+  color: var(--purple);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Inputs */
+.booking-field input,
+.booking-field select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Focus effect */
+.booking-field input:focus,
+.booking-field select:focus {
+  border-color: var(--purple);
+  outline: none;
+}
+
+/* Button */
+.booking-btn button {
+  width: 100%;
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover */
+.booking-btn button:hover {
+  background: #37205f;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .booking-bar {
+    flex-direction: column;
+  }
+
+  .booking-btn button {
+    width: 100%;
+  }
+}
+  </style>
 </head>
 <body>
 
@@ -25,36 +98,59 @@
       
 </nav>
 
-<form>
-    Name:<br>
-    <input type="text"><br><br>
+<form class="booking-bar">
 
-    Email:<br>
-    <input type="email"><br><br>
+  <!-- Name -->
+  <div class="booking-field">
+    <label>Name</label>
+    <input type="text" placeholder="Your name">
+  </div>
 
-    Room Type:<br>
+  <!-- Email -->
+  <div class="booking-field">
+    <label>Email</label>
+    <input type="email" placeholder="Your email">
+  </div>
+
+  <!-- Room Type -->
+  <div class="booking-field">
+    <label>Room</label>
     <select>
-        <option>Standard</option>
-        <option>Deluxe</option>
-        <option>Family</option>
-        <option>Executive</option>
-        <option>Presidential</option>
-    </select><br><br>
+      <option>Standard</option>
+      <option>Deluxe</option>
+      <option>Family</option>
+      <option>Executive</option>
+      <option>Presidential</option>
+    </select>
+  </div>
 
-    Check-in Date:<br>
-    <input type="date"><br><br>
-
-    <label>Check-out:</label>
+  <!-- Check-in -->
+  <div class="booking-field">
+    <label>Check-in</label>
     <input type="date">
+  </div>
 
-    <label>Guests:</label>
+  <!-- Check-out -->
+  <div class="booking-field">
+    <label>Check-out</label>
+    <input type="date">
+  </div>
+
+  <!-- Guests -->
+  <div class="booking-field">
+    <label>Guests</label>
     <select>
       <option>1 Guest</option>
       <option>2 Guests</option>
       <option>3 Guests</option>
     </select>
+  </div>
 
-    <input type="submit" value="Book Now">
+  <!-- Button -->
+  <div class="booking-btn">
+    <button type="submit">Book Now</button>
+  </div>
+
 </form>
 
 
