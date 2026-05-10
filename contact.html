@@ -3,6 +3,92 @@
 <head>
     <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+      /* ===================== CONTACT PAGE ===================== */
+
+.contact-page h2 {
+  text-align: center;
+  color: var(--purple);
+  margin-bottom: 30px;
+}
+
+/* Layout container */
+.contact-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Left side (info) */
+.contact-info {
+  flex: 1;
+  background: var(--gold);
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--purple);
+}
+
+.contact-info h3 {
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+}
+
+/* Map */
+.map {
+  margin-top: 20px;
+  height: 200px;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Right side (form) */
+.contact-form {
+  flex: 1;
+  background: var(--white);
+  padding: 20px;
+  border: 2px solid var(--purple);
+  border-radius: 8px;
+}
+
+.contact-form h3 {
+  margin-bottom: 15px;
+  color: var(--purple);
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--purple);
+  outline: none;
+}
+
+/* Button */
+.contact-form .btn {
+  width: 100%;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+}
+    </style>
 </head>
 <body>
 
